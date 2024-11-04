@@ -56,6 +56,19 @@ services:
       - mongodb
     networks:
       - mongoexpress-network
+  
+  seeder:
+      container_name: seeder
+      build:
+        context: .
+        dockerfile: Dockerfile-seeder
+      restart: 'no'
+      depends_on:
+        - mongodb
+      environment:
+        MONGODB_URI: mongodb://admin:secret@mongodb:27017 
+      networks:
+        - mongo-networks
 
 networks: 
   mongo-network:
