@@ -68,7 +68,7 @@ services:
       environment:
         MONGODB_URI: mongodb://admin:secret@mongodb:27017 
       networks:
-        - mongo-networks
+        - mongo-network
 
 networks: 
   mongo-network:
